@@ -1,6 +1,7 @@
 import copy
 import math
 import os
+import re
 
 from .utils import md5
 from .input_event import TouchEvent, LongTouchEvent, ScrollEvent, SetTextEvent, KeyEvent
@@ -119,7 +120,10 @@ class DeviceState(object):
         else:
             view_signatures = set()
             for view in self.views:
-                view_signature = DeviceState.__get_view_signature(view)
+                if self.device.ignore_views_text:
+                    view_signature = DeviceState.__get_content_free_view_signature(view)
+                else:
+                    view_signature = DeviceState.__get_view_signature(view)
                 if view_signature:
                     view_signatures.add(view_signature)
             return "%s{%s}" % (self.foreground_activity, ",".join(sorted(view_signatures)))

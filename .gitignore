@@ -1,15 +1,18 @@
-# Created by .ignore support plugin (hsz.mobi)
-### Python template
+# DroidBot specific
+# Ignore all output directories, which typically start with 'output_'
+/output_*/
+# Ignore any APK files that are placed in the root for testing
+*.apk
+
+# Python general
+# ==================================================================
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
 # Distribution / packaging
-.Python
-env/
 build/
-develop-eggs/
 dist/
 downloads/
 eggs/
@@ -19,15 +22,11 @@ lib64/
 parts/
 sdist/
 var/
+wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+MANIFEST
 
 # Installer logs
 pip-log.txt
@@ -36,30 +35,43 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+.nox/
 .coverage
 .coverage.*
 .cache
 nosetests.xml
 coverage.xml
-*,cover
+*.cover
+.hypothesis/
+.pytest_cache/
 
-# Translations
-*.mo
-*.pot
+# Virtual Environments
+# ==================================================================
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
 
-# Django stuff:
-*.log
+# IDE and Editor specific
+# ==================================================================
+# JetBrains IDEs (PyCharm, IntelliJ, etc.)
+.idea/
+# VS Code
+.vscode/
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+# Vim
+*.sw[op]
+# Emacs
+*~
+#~
 
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-.idea
-droidbot_output
-_site
-Gemfile.lock
+# OS-generated files
+# ==================================================================
+# macOS
 .DS_Store
-documents
-temp
-venv
+# Windows
+Thumbs.db

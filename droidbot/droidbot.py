@@ -44,6 +44,7 @@ class DroidBot(object):
                  master=None,
                  humanoid=None,
                  ignore_ad=False,
+                 ignore_views_text=False,
                  replay_output=None):
         """
         initiate droidbot with configurations
@@ -79,6 +80,7 @@ class DroidBot(object):
         self.enable_accessibility_hard = enable_accessibility_hard
         self.humanoid = humanoid
         self.ignore_ad = ignore_ad
+        self.ignore_views_text = ignore_views_text
         self.replay_output = replay_output
 
         self.enabled = True
@@ -92,7 +94,8 @@ class DroidBot(object):
                 grant_perm=grant_perm,
                 enable_accessibility_hard=self.enable_accessibility_hard,
                 humanoid=self.humanoid,
-                ignore_ad=ignore_ad)
+                ignore_ad=ignore_ad,
+                ignore_views_text=ignore_views_text)
             self.app = App(app_path, output_dir=self.output_dir)
 
             self.env_manager = AppEnvManager(
